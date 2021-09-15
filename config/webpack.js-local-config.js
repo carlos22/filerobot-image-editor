@@ -20,7 +20,7 @@ module.exports = (env = {}) => {
       path: path.join(__dirname, `../build/${pkg.version}-local`),
       filename: `${pkg.name}.min.js`,
       chunkFilename: `[name].min.js`,
-      publicPath: ""
+      publicPath: "/static/"
     },
     module: {
       rules: [
