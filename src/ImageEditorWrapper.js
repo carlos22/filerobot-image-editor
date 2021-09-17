@@ -94,8 +94,9 @@ class ImageEditorWrapper extends Component {
     const status = typeof closingStatus === 'object' ? ON_CLOSE_STATUSES.CLOSE_BTN_CLICKED : closingStatus;
 
     if (this._isMounted) {
-      this.setState({ isVisible: false }, () => {
-        if (onClose) onClose({ status });
+      const hide = onClose ? onClose({ status }) : true;
+      this.setState({ isVisible: !hide }, () => {
+        // TODO: add onAfterClose or similar.
       });
     }
   }
